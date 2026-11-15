@@ -1,26 +1,159 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f6f8;
+  --foreground: #0f1115;
+  --surface: #ffffff;
+  --panel: #eceef1;
+  --panel-strong: #e0e3e8;
+  --muted: rgba(15, 17, 21, 0.62);
+  --subtle: rgba(15, 17, 21, 0.45);
+  --faint: rgba(15, 17, 21, 0.3);
+  --line: rgba(15, 17, 21, 0.1);
+  --line-strong: rgba(15, 17, 21, 0.2);
+
+  /* Restrained palette taken from the monochrome logo: graphite tones plus one
+     functional green for status. Names are kept so components didn't change. */
+  --blue: #1f2633;
+  --blue-soft: #e6e9ee;
+  --mint: #1d7a52;
+  --mint-soft: #e1eee7;
+  --peach: #4b515b;
+  --peach-soft: #eaebee;
+  --violet: #343a46;
+  --violet-soft: #e4e6eb;
+  --butter: #868c96;
+  --butter-soft: #eeeff1;
+  --rose: #6a707a;
+  --rose-soft: #ebecef;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-panel: var(--panel);
+  --color-panel-strong: var(--panel-strong);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-blue: var(--blue);
+  --color-blue-soft: var(--blue-soft);
+  --color-mint: var(--mint);
+  --color-mint-soft: var(--mint-soft);
+  --color-peach: var(--peach);
+  --color-peach-soft: var(--peach-soft);
+  --color-violet: var(--violet);
+  --color-violet-soft: var(--violet-soft);
+  --color-butter: var(--butter);
+  --color-butter-soft: var(--butter-soft);
+  --color-rose: var(--rose);
+  --color-rose-soft: var(--rose-soft);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --animate-dash: dash 1.6s linear infinite;
+  --animate-blink: blink 1s steps(2) infinite;
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-drift: drift 16s ease-in-out infinite;
+  --animate-bob: bob 5s ease-in-out infinite;
+  --animate-marquee-reverse: marquee 40s linear infinite reverse;
+  --animate-scan: scan 2.4s ease-in-out infinite;
+  --animate-spin-slow: spin 14s linear infinite;
+
+  @keyframes dash {
+    to { stroke-dashoffset: -16; }
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(6%, -8%) scale(1.08); }
+    66% { transform: translate(-6%, 6%) scale(0.95); }
+  }
+  @keyframes scan {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(var(--scan, 60px)); }
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+    50% { transform: translateY(-10px) rotate(var(--r, 0deg)); }
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--background);
+  overflow-x: clip;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--panel-strong);
+  color: var(--foreground);
+}
+
+/* Second half of two-tone headlines. */
+.accent {
+  font-style: normal;
+}
+
+/* Dot grid used behind the hero, panels and footer. */
+.dots {
+  background-image: radial-gradient(rgba(15, 17, 21, 0.1) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Isometric grid (30°) echoing the logo's geometry. */
+.iso-grid {
+  background-image:
+    repeating-linear-gradient(30deg, rgba(15, 17, 21, 0.07) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(150deg, rgba(15, 17, 21, 0.07) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(90deg, rgba(15, 17, 21, 0.05) 0 1px, transparent 1px 48.5px);
+}
+
+/* Faint vertical hairlines used behind the hero and footer. */
+.stripes {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.035) 0 1px,
+    transparent 1px 7px
+  );
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
