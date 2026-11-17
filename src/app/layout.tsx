@@ -17,7 +17,6 @@ export const metadata: Metadata = {
   title: "DataMeld — Web and mobile app development",
   description:
     "DataMeld is a small team that designs and builds web and mobile applications for startups and enterprises.",
-  icons: { icon: "/datameld-logo.png" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

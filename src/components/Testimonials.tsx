@@ -38,7 +38,7 @@ export default function Testimonials() {
                 <li key={q.name}>
                   <button onClick={() => setActive(i)} className="w-full py-2 text-left">
                     <span className="block text-[15px] transition-colors" style={{ color: on ? "#0f1115" : "rgba(15,17,21,0.4)" }}>
-                      {q.role.split(", ")[1]}
+                      {q.company}
                     </span>
                     <span className="mt-2 block h-[2px] overflow-hidden rounded-full bg-black/[0.06]">
                       {on && (
@@ -99,13 +99,14 @@ export default function Testimonials() {
               >
                 <span className="grid h-12 w-12 place-items-center rounded-full text-[14px] text-white" style={{ background: tone.strong }}>
                   {t.name
-                    .split(" ")
+                    .split(/[\s.]+/)
+                    .filter(Boolean)
                     .map((n) => n[0])
                     .join("")}
                 </span>
                 <span>
                   <span className="block text-[16px]">{t.name}</span>
-                  <span className="block text-[14px] text-muted">{t.role}</span>
+                  <span className="block text-[14px] text-muted">{t.company}</span>
                 </span>
               </motion.figcaption>
             </motion.figure>

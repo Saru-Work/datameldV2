@@ -131,38 +131,17 @@ export const caseStudies: {
 export const testimonials = [
   {
     quote:
-      "DataMeld rebuilt our analytics core in four months. Customers noticed the speed on day one, and churn dropped the next quarter.",
-    name: "Amara Okafor",
-    role: "CTO, Pulse Analytics",
+      "DataMeld built our matrimony platform from the ground up. They understood our members, delivered on time and are still the first people we call.",
+    name: "J. Suthaskaran",
+    company: "Viwahaa.com",
     tone: "blue" as Tone,
   },
   {
     quote:
-      "They think like product owners, not contractors. Every sprint ended with something we could put in front of patients.",
-    name: "Daniel Reyes",
-    role: "VP Product, Verdant Health",
-    tone: "mint" as Tone,
-  },
-  {
-    quote:
-      "Fourteen legacy systems, one dashboard. I didn't think it was possible on our timeline. They made it look routine.",
-    name: "Priya Natarajan",
-    role: "COO, Orbit Logistics",
-    tone: "peach" as Tone,
-  },
-  {
-    quote:
-      "The assistant they shipped handles most of our support volume, and satisfaction actually went up. A remarkably calm team.",
-    name: "Jonas Lindqvist",
-    role: "Head of CX, Lumen",
+      "Clear communication, honest timelines and a site that finally shows our work the way it deserves. Working with DataMeld was effortless.",
+    name: "N. Niruban",
+    company: "foxlaproductions.com",
     tone: "violet" as Tone,
-  },
-  {
-    quote:
-      "Clear scope, honest estimates, and code our own engineers enjoy working in. That combination is rarer than it should be.",
-    name: "Mei Tanaka",
-    role: "Engineering Lead, Coinvault",
-    tone: "butter" as Tone,
   },
 ];
 
