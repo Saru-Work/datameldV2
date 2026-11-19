@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { tones, type Tone } from "@/lib/data";
@@ -7,9 +8,10 @@ import { MobileAppScreen, WebPlatformScreen } from "./mockups";
 import { ScaledCanvas } from "./Workspace";
 import { FadeIn, SectionHeading } from "./ui";
 
-const services: { title: string; description: string; tags: string[]; tone: Tone; Screen: () => React.ReactNode }[] = [
+const services: { title: string; href: string; description: string; tags: string[]; tone: Tone; Screen: () => React.ReactNode }[] = [
   {
     title: "Web apps",
+    href: "/services/web-app-development",
     description: "Customer portals, SaaS products and internal tools, from first prototype to production on the cloud.",
     tags: ["React", "Next.js", "Python", "AWS", "Hostinger"],
     tone: "blue",
@@ -17,6 +19,7 @@ const services: { title: string; description: string; tags: string[]; tone: Tone
   },
   {
     title: "Mobile apps",
+    href: "/services/mobile-app-development",
     description: "iOS and Android apps from a single Flutter codebase, shipped to both app stores.",
     tags: ["Flutter", "iOS", "Android"],
     tone: "mint",
@@ -149,6 +152,15 @@ export default function Services() {
           </FadeIn>
         </div>
       </div>
+
+      <FadeIn className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-[15px]">
+        {services.map((s) => (
+          <Link key={s.href} href={s.href} className="group inline-flex items-center gap-2 underline decoration-line-strong underline-offset-4 hover:decoration-foreground">
+            More about {s.title.toLowerCase().replace(/s$/, "")} development
+            <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+          </Link>
+        ))}
+      </FadeIn>
     </section>
   );
 }

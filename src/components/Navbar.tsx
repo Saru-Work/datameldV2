@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { navLinks } from "@/lib/data";
@@ -26,9 +27,9 @@ export default function Navbar() {
         style={{ backdropFilter: "blur(14px)", WebkitBackdropFilter: "blur(14px)" }}
       >
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between">
-        <a href="#top" aria-label="DataMeld home" className="shrink-0">
+        <Link href="/" aria-label="DataMeld home" className="shrink-0">
           <Logo />
-        </a>
+        </Link>
 
         <ul className="hidden items-center md:flex" onPointerLeave={() => setHovered(null)}>
           {navLinks.map((link) => (

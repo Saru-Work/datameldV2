@@ -1,9 +1,9 @@
 export const navLinks = [
-  { href: "#services", label: "Services" },
-  { href: "#process", label: "Process" },
-  { href: "#work", label: "Work" },
-  { href: "#why", label: "Why us" },
-  { href: "#clients", label: "Clients" },
+  { href: "/#services", label: "Services" },
+  { href: "/#process", label: "Process" },
+  { href: "/#work", label: "Work" },
+  { href: "/#why", label: "Why us" },
+  { href: "/#clients", label: "Clients" },
 ];
 
 /** Each tone pairs a soft tint (surfaces) with a saturated colour (marks, numbers). */
@@ -145,7 +145,16 @@ export const testimonials = [
   },
 ];
 
-export const footerLinks = [
-  ["Web apps", "Mobile apps"],
-  ["About", "Case studies", "Process", "Careers", "Contact"],
+export const footerLinks: { label: string; href: string }[][] = [
+  [
+    { label: "Web app development", href: "/services/web-app-development" },
+    { label: "Mobile app development", href: "/services/mobile-app-development" },
+  ],
+  [
+    { label: "About", href: "/#why" },
+    { label: "Case studies", href: "/#work" },
+    { label: "Process", href: "/#process" },
+    { label: "Careers", href: "mailto:saruatwork@gmail.com?subject=Careers%20at%20DataMeld" },
+    { label: "Contact", href: "#contact" },
+  ],
 ];

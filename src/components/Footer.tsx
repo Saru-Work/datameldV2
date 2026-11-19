@@ -20,18 +20,18 @@ export default function Footer() {
           <a href="mailto:saruatwork@gmail.com" className="mt-4 inline-block text-[15px] text-foreground underline decoration-line-strong underline-offset-4 hover:decoration-foreground">
             saruatwork@gmail.com
           </a>
-          <p className="mt-3 text-[14px] leading-[1.6] text-muted">Jaffna Town, Jaffna, Sri Lanka</p>
+          <address className="mt-3 text-[14px] leading-[1.6] text-muted not-italic">Jaffna Town, Jaffna, Sri Lanka</address>
         </div>
         <div className="grid grid-cols-2 gap-x-16 gap-y-10">
           {footerLinks.map((col, i) => (
             <div key={i}>
-              <p className="mb-4 text-[12px] tracking-widest text-subtle uppercase">{headings[i]}</p>
+              <h2 className="mb-4 text-[12px] font-normal tracking-widest text-subtle uppercase">{headings[i]}</h2>
               <ul className="space-y-3">
                 {col.map((l) => (
-                  <li key={l}>
-                    <a href="#" className="group flex items-center gap-1 text-[15px] tracking-[-0.01em] transition-colors hover:text-muted">
-                      {l}
-                      <span className="-translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100">↗</span>
+                  <li key={l.label}>
+                    <a href={l.href} className="group flex items-center gap-1 text-[15px] tracking-[-0.01em] transition-colors hover:text-muted">
+                      {l.label}
+                      <span aria-hidden className="-translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100">↗</span>
                     </a>
                   </li>
                 ))}
